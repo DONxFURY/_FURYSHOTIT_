@@ -1,62 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - FURYSHOTIT</title>
+
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
 <nav class="navbar">
-<h1>FURYSHOTIT</h1>
-<div class="nav-links">
-<a href="index.html">Home</a>
-</div>
+  <h1>FURYSHOTIT</h1>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+  </div>
 </nav>
 
 <section class="gallery-page">
-<h2>Gallery</h2>
 
-<div class="gallery-grid">
+  <h2>Gallery</h2>
 
-<div class="card">
-<img src="./assets/images/photo1.jpg">
-<a class="download-btn" download href="assets/images/photo1.jpg">Download</a>
-</div>
+  <div
+    class="gallery-grid"
+    id="galleryGrid"
+  ></div>
 
-
-<div class="card">
-<img src="./assets/images/photo2.jpg">
-<a class="download-btn" download href="assets/images/photo2.jpg">Download</a>
-</div>
-
-
-<div class="card">
-<img src="./assets/images/photo3.jpg">
-<a class="download-btn" download href="assets/images/photo3.jpg">Download</a>
-</div>
-
-
-<div class="card">
-<img src="./assets/images/photo4.jpg">
-<a class="download-btn" download href="assets/images/photo4.jpg">Download</a>
-</div>
-
-
-<div class="card">
-<img src="./assets/images/photo5.jpg">
-<a class="download-btn" download href="assets/images/photo5.jpg">Download</a>
-</div>
-
-
-<div class="card">
-<img src="./assets/images/photo6.jpg">
-<a class="download-btn" download href="assets/images/photo6.jpg">Download</a>
-</div>
-
-</div>
 </section>
+
+<script>
+
+const images = [
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg",
+  "photo4.jpg",
+  "photo5.jpg",
+  "photo6.jpg"
+];
+
+const gallery = document.getElementById("galleryGrid");
+
+images.forEach((img) => {
+
+  gallery.innerHTML += `
+  
+    <div class="card">
+
+      <img src="./assets/images/${img}">
+
+      <a
+        class="download-btn"
+        download
+        href="./assets/images/${img}"
+      >
+        Download
+      </a>
+
+    </div>
+
+  `;
+});
+
+</script>
 
 </body>
 </html>
