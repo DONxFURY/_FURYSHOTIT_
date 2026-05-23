@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Gallery - FURYSHOTIT</title>
 
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -31,56 +30,37 @@
 
 <script>
 
-const username = "DONxFURY";
-const repo = "FURYSHOTIT";
-const folder = "assets/images/gallery";
+const images = [
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg",
+  "photo4.jpg",
+  "photo5.jpg",
+  "photo6.jpg"
+];
 
-async function loadGallery() {
+const gallery = document.getElementById("galleryGrid");
 
-  const url =
-    `https://api.github.com/repos/${username}/${repo}/contents/${folder}`;
+images.forEach((img) => {
 
-  const response = await fetch(url);
+  gallery.innerHTML += `
+  
+    <div class="card">
 
-  const data = await response.json();
+      <img src="./assets/images/${img}">
 
-  const gallery =
-    document.getElementById("galleryGrid");
+      <a
+        class="download-btn"
+        download
+        href="./assets/images/${img}"
+      >
+        Download
+      </a>
 
-  data.forEach((file) => {
+    </div>
 
-    const isImage =
-      file.name.endsWith(".jpg") ||
-      file.name.endsWith(".png") ||
-      file.name.endsWith(".jpeg") ||
-      file.name.endsWith(".webp");
-
-    if (isImage) {
-
-      gallery.innerHTML += `
-
-        <div class="card">
-
-          <img src="${file.download_url}">
-
-          <a
-            class="download-btn"
-            href="${file.download_url}"
-            download
-          >
-            Download
-          </a>
-
-        </div>
-
-      `;
-    }
-
-  });
-
-}
-
-loadGallery();
+  `;
+});
 
 </script>
 
